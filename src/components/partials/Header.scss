@@ -1,0 +1,22 @@
+@import '../../_settings.scss';
+
+.menu {
+    display: flex;
+    padding: 20px;
+    margin: 0;
+    background: $lightblue;
+}
+
+.menu__item {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.menu__link {
+    color: $blue;
+    text-decoration: none;
+    &:hover, &.selected {
+        color: $darkblue;
+        text-decoration: underline
+    }
+}
