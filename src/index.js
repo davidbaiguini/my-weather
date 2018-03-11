@@ -12,7 +12,15 @@ import App from 'components/App';
 import './index.css';
 
 // Add the reducer to your store on the `routing` key
-const store = createStore(combineReducers({weatherReducer, routing: routerReducer}), compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const store = createStore(
+    combineReducers(
+        {
+            weather: weatherReducer,
+            routing: routerReducer
+        }
+    ),
+    compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+)
 
 // Define the provider for the Redux store
 const AppProvider = () => (

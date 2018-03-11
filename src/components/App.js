@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import css from './App.css';
 
 import Header from 'components/partials/Header';
-import TodayForecast from 'components/pages/TodayForecast';
+import TodayForecast from 'components/pages/TodayForecast/TodayForecastContainer';
 import NextDaysForecast from 'components/pages/NextDaysForecast';
 
 class App extends Component {
