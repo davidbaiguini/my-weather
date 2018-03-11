@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import css from './App.css';
-
 import Header from 'components/partials/Header';
 import TodayWeather from 'components/pages/TodayWeather/TodayWeatherContainer';
 import NextDaysForecast from 'components/pages/NextDaysForecast/NextDaysForecastContainer';
