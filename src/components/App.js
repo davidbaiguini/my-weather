@@ -5,8 +5,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import css from './App.css';
 
 import Header from 'components/partials/Header';
-import TodayForecast from 'components/pages/TodayForecast/TodayForecastContainer';
-import NextDaysForecast from 'components/pages/NextDaysForecast';
+import TodayWeather from 'components/pages/TodayWeather/TodayWeatherContainer';
+import NextDaysForecast from 'components/pages/NextDaysForecast/NextDaysForecastContainer';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         <div>
             <Header/>
             <div>
-                <Route exact path="/" component={TodayForecast}/>
+                <Route exact path="/" component={TodayWeather}/>
                 <Route exact path="/nextDaysForecast" component={NextDaysForecast}/>
             </div>
         </div>

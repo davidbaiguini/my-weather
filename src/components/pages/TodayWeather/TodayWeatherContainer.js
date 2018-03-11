@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router'
 import {fetchWeather, todayWeatherSelector} from 'store/weather';
-import TodayForecast from './TodayForecast'
+import TodayWeather from './TodayWeather'
 
 // State
 const mapStateToProps = (state) => {
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 // withRouter allow us to access the history and handle the 'active' route
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodayForecast))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodayWeather))

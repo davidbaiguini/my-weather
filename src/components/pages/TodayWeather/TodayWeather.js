@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export default class TodayForecast extends Component {
+export default class TodayWeather extends Component {
 
     componentDidMount() {
         const {fetchWeather} = this.props;
@@ -30,7 +30,7 @@ export default class TodayForecast extends Component {
     }
 }
 
-TodayForecast.propTypes = {
+TodayWeather.propTypes = {
     fetchWeather: PropTypes.func.isRequired,
     todayWeather: PropTypes.object,
 }
