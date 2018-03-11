@@ -1,3 +1,5 @@
+// Follow Ducks: https://github.com/erikras/ducks-modular-redux
+
 import {createSelector} from 'reselect';
 import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
@@ -113,7 +115,11 @@ export const fiveDaysForecast = createSelector(
     forecast => {
 
         if (forecast.data) {
+
             const dates = groupBy(forecast.data.list, (d) => moment(d.dt_txt).format('D/MM/Y'));
+
+            // The free version of this API does not provide the temperature per day.
+            // We have to calculate it ourselves
             const temperatures = map(dates, dateTemperatures => {
                 const avgTemperature = (dateTemperatures.reduce((acc, val) => acc + val.main.temp, 0)) / dateTemperatures.length;
                 return Math.floor(avgTemperature);
@@ -123,6 +129,7 @@ export const fiveDaysForecast = createSelector(
                 dates: Object.keys(dates),
                 temperatures
             }
+
         }
 
         return null;

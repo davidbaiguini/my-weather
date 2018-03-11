@@ -29,6 +29,7 @@ const AppProvider = () => (
     </Provider>
 );
 
+// Render the App
 ReactDOM.render(
     <AppProvider/>, document.getElementById('root'));
 registerServiceWorker();
