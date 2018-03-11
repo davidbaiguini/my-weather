@@ -10,9 +10,9 @@ export const FETCH_DATA_SUCCEEDED = 'FETCH_DATA_SUCCEEDED'
  */
 export function fetchDataSucceeded(data) {
     return {
-        type: FETCH_DATA_SUCCEEDED, payload: {
-        data
-    }}
+        type: FETCH_DATA_SUCCEEDED,
+        payload: { data }
+    }
 }
 
 /*

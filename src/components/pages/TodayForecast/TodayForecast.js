@@ -13,7 +13,18 @@ export default class TodayForecast extends Component {
 
         return (
             <div>
-                {todayWeather.isLoaded && <div>Today's forecast for {todayWeather.data.name}</div>}
+                {todayWeather.isLoaded &&
+                    <div>
+                        <h1>Today's weather for {todayWeather.data.name}</h1>
+                        <img src={`http://openweathermap.org/img/w/${todayWeather.data.weather[0].icon}.png`} />
+                        <span>{todayWeather.data.weather[0].main}, {todayWeather.data.weather[0].description}</span>
+                        <div>Temperature: {todayWeather.data.main.temp} C&deg;</div>
+                        <div>Temperature (min): {todayWeather.data.main.temp_min} C&deg;</div>
+                        <div>Temperature (max): {todayWeather.data.main.temp_max} C&deg;</div>
+                        <div>Pressure: {todayWeather.data.main.pressure} mBar</div>
+                        <div>Humidity: {todayWeather.data.main.humidity} %</div>
+                    </div>
+                }
             </div>
         );
     }
