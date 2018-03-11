@@ -1,4 +1,6 @@
-import {createSelector} from 'reselect'
+import {createSelector} from 'reselect';
+import groupBy from 'lodash/groupBy';
+import map from 'lodash/map';
 import moment from 'moment';
 
 /*
@@ -109,16 +111,20 @@ export const forecastSelector = createSelector(
 export const fiveDaysForecast = createSelector(
     forecastSelector,
     forecast => {
-        if (forecast.data) {
-            const temperatures = forecast.data.list.map(f => f.main.temp);
 
-            const dates = forecast.data.list.map(f =>  moment(f.dt_txt).format('D/MM/Y HA'))
+        if (forecast.data) {
+            const dates = groupBy(forecast.data.list, (d) => moment(d.dt_txt).format('D/MM/Y'));
+            const temperatures = map(dates, dateTemperatures => {
+                const avgTemperature = (dateTemperatures.reduce((acc, val) => acc + val.main.temp, 0)) / dateTemperatures.length;
+                return Math.floor(avgTemperature);
+            })
 
             return {
-                temperatures,
-                dates
+                dates: Object.keys(dates),
+                temperatures
             }
         }
+
         return null;
     }
 );
